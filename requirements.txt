@@ -1,0 +1,5 @@
+flask
+Flask-Social
+Flask-SQLAlchemy
+mongoengine
+google-api-python-client
