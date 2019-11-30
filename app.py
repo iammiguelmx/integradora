@@ -13,7 +13,6 @@ from flask import render_template
 app = Flask(__name__)
 register = db_connect(MONGO_URI, 'mi_app', 'register')
 
-
 @app.route('/', methods = ['GET', 'POST'])
 def index():
     form = LoginForm(request.form)
@@ -73,6 +72,9 @@ def login():
 @app.route('/forgot')
 def forgot():
     return render_template('forgot-password.html')
+
+@app.route('/clasiicacion')
+    return render_template('')
 
 @app.errorhandler(404)
 def no_encontrado(error=None):
