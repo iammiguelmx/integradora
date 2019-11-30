@@ -1,6 +1,5 @@
 flask
 dbutils
 mongoengine
-pymongo
-pymongo[srv]
+pymongo[tls,srv]
 wtforms
