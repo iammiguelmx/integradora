@@ -8,18 +8,27 @@ from form import RegisterForm
 from flask import Flask
 from flask import request
 from flask import render_template
-from flask import url_for
-from flask import make_response
-from flask import redirect
-from flask import current_app
 
 # Creacion de instance
 app = Flask(__name__)
 register = db_connect(MONGO_URI, 'mi_app', 'register')
 
-@app.route('/')
+
+@app.route('/', methods = ['GET', 'POST'])
 def index():
+    form = LoginForm(request.form)
+    login_error = False
+
+    if len(form.errors):
+        print(form.errors)
+    if request.method == 'POST':
+        if form.username.data == 'admin' and form.password.data == 'admin':
+            return render_template('index.html')
+        else:
+            login_error = True
+
     return render_template('login.html')
+
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -50,7 +59,7 @@ def register():
             }
             db_insert_user(register, user)
             flag = True
-            
+
     return render_template('register.html', flag=flag, name=name)
 
 @app.route('/maps')
