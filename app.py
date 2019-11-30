@@ -45,11 +45,11 @@ def register():
         password = form.password.data
         confirmpass = form.confirmpass.data
         if fistname != '' and lastname != '':
-            print(f"Fistname capturado: {fistname}")
-            print(f"Lastname capturado: {lastname}")
-            print(f"Mail capturado: {mail}")
-            print(f"Password capturado: {password}")
-            print(f"Confirmpass capturado: {confirmpass}")
+        #    print(f"Fistname capturado: {fistname}")
+        #    print(f"Lastname capturado: {lastname}")
+        #    print(f"Mail capturado: {mail}")
+        #    print(f"Password capturado: {password}")
+        #    print(f"Confirmpass capturado: {confirmpass}")
             user = {
                 "fistname": fistname,
                 "lastname": lastname,
