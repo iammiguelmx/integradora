@@ -11,7 +11,7 @@ from flask import render_template
 
 # Creacion de instance
 app = Flask(__name__)
-register = db_connect(MONGO_URI, 'mi_app', 'register')
+users = db_connect(MONGO_URI, 'mi_app', 'users')
 
 @app.route('/', methods = ['GET', 'POST'])
 def index():
@@ -25,7 +25,6 @@ def index():
             return render_template('index.html')
         else:
             login_error = True
-
     return render_template('login.html')
 
 
@@ -33,7 +32,7 @@ def index():
 def register():
     form = RegisterForm(request.form)
     flag = False
-    name = None
+    fistname = None
 
     if len(form.errors):
         print(form.errors)
@@ -44,11 +43,11 @@ def register():
         password = form.password.data
         confirmpass = form.confirmpass.data
         if fistname != '' and lastname != '':
-        #    print(f"Fistname capturado: {fistname}")
-        #    print(f"Lastname capturado: {lastname}")
-        #    print(f"Mail capturado: {mail}")
-        #    print(f"Password capturado: {password}")
-        #    print(f"Confirmpass capturado: {confirmpass}")
+            print(f"Fistname capturado: {fistname}")
+            print(f"Lastname capturado: {lastname}")
+            print(f"Mail capturado: {mail}")
+            print(f"Password capturado: {password}")
+            print(f"Confirmpass capturado: {confirmpass}")
             user = {
                 "fistname": fistname,
                 "lastname": lastname,
@@ -56,10 +55,10 @@ def register():
                 "password": password,
                 "confirmpass": confirmpass
             }
-            db_insert_user(register, user)
+            db_insert_user(users, user)
             flag = True
 
-    return render_template('register.html', flag=flag, name=name)
+    return render_template('register.html', flag=flag, fistname=fistname)
 
 @app.route('/maps')
 def maps():
@@ -74,7 +73,8 @@ def forgot():
     return render_template('forgot-password.html')
 
 @app.route('/clasiicacion')
-    return render_template('')
+def clasificacion():
+    return render_template('forgot-password.html')
 
 @app.errorhandler(404)
 def no_encontrado(error=None):

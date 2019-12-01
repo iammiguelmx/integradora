@@ -35,24 +35,24 @@
                 <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
               </div>
 
-              <form class="user">
+              <form class="user" method="POST">
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="text" class="form-control form-control-user" id="inputFistName" name="inputFistName" placeholder="First Name">
+                    <input type="text" class="form-control form-control-user" id="inputFistName" name="fistname" placeholder="First Name">
                   </div>
                   <div class="col-sm-6">
-                    <input type="text" class="form-control form-control-user" id="inputLastName" placeholder="Last Name">
+                      <input type="text" class="form-control form-control-user" id="inputLastName" name="lastname" placeholder="First Name">
                   </div>
                 </div>
                 <div class="form-group">
-                  <input type="email" class="form-control form-control-user" id="inputEmail" placeholder="Email Address">
+                  <input type="email" class="form-control form-control-user"  name="mail" id="inputEmail" placeholder="Email Address">
                 </div>
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="password" class="form-control form-control-user" id="inputPass" placeholder="Password">
+                    <input type="password" class="form-control form-control-user" id="inputPass" placeholder="Password" name="password">
                   </div>
                   <div class="col-sm-6">
-                    <input type="password" class="form-control form-control-user" id="inputRepeatPass" placeholder="Repeat Password">
+                    <input type="password" class="form-control form-control-user" id="inputRepeatPass" placeholder="Repeat Password" name="confirmpass">
                   </div>
                 </div>
                 <button type="submit" class="btn btn-primary mx-auto"> Register Account</button>
