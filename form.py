@@ -9,7 +9,7 @@ class EmailForm(Form):
     email = StringField('email', validators=[DataRequired()])
 
 class LoginForm(Form):
-    username = StringField('username', validators=[DataRequired()])
+    email = StringField('email', validators=[DataRequired()])
     password = StringField('password', validators=[DataRequired()])
 
 class RegisterForm(Form):

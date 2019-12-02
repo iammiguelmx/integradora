@@ -21,7 +21,7 @@ def index():
     if len(form.errors):
         print(form.errors)
     if request.method == 'POST':
-        if form.username.data == 'admin' and form.password.data == 'admin':
+        if form.email.data == 'miguel@gmail.com' and form.password.data == '12':
             return render_template('index.html')
         else:
             login_error = True
@@ -42,12 +42,7 @@ def register():
         mail = form.mail.data
         password = form.password.data
         confirmpass = form.confirmpass.data
-        if fistname != '' and lastname != '':
-        #    print(f"Fistname capturado: {fistname}")
-        #    print(f"Lastname capturado: {lastname}")
-        #    print(f"Mail capturado: {mail}")
-        #    print(f"Password capturado: {password}")
-        #    print(f"Confirmpass capturado: {confirmpass}")
+        if fistname != '' and lastname != '' and mail != '' and password != '' and confirmpass != '':
             user = {
                 "fistname": fistname,
                 "lastname": lastname,
@@ -57,7 +52,6 @@ def register():
             }
             db_insert_user(users, user)
             flag = True
-
     return render_template('register.html', flag=flag, fistname=fistname)
 
 @app.route('/maps')
@@ -72,9 +66,13 @@ def login():
 def forgot():
     return render_template('forgot-password.html')
 
-@app.route('/clasiicacion')
+@app.route('/clasificacion')
 def clasificacion():
-    return render_template('forgot-password.html')
+    return render_template('cards.html')
+
+@app.route('/graficas')
+def graficas():
+    return render_template('/graficas.html')
 
 @app.errorhandler(404)
 def no_encontrado(error=None):
