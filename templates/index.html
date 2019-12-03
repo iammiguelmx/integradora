@@ -507,6 +507,38 @@
   <!-- /.container-fluid -->
 
   </div>
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Load Facebook SDK for JavaScript -->
+  <div id="fb-root"></div>
+  <script>
+    window.fbAsyncInit = function () {
+      FB.init({
+        xfbml: true,
+        version: 'v3.3'
+      });
+    };
+    (function (d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = 'https://connect.facebook.net/es_LA/sdk/xfbml.customerchat.js';
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
+
+<!-- Your customer chat code -->
+<div class="fb-customerchat"
+  attribution=setup_tool
+  page_id="112976913403981"
+  theme_color="#44bec7"
+  logged_in_greeting="Hola!"
+  logged_out_greeting="Hola!">
+</div>
+
   <!-- End of Main Content -->
 
   <!-- Footer -->
@@ -518,35 +550,12 @@
     </div>
   </footer>
   <!-- End of Footer -->
-
   </div>
   <!-- End of Content Wrapper -->
-
   </div>
   <!-- End of Page Wrapper -->
 
-  <!-- Scroll to Top Button-->
-  <a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-  </a>
-
-  <!-- Bootstrap core JavaScript-->
-  <script src="static/vendor/jquery/jquery.min.js"></script>
-  <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Core plugin JavaScript-->
-  <script src="static/vendor/jquery-easing/jquery.easing.min.js"></script>
-
-  <!-- Custom scripts for all pages-->
-  <script src="static/js/sb-admin-2.min.js"></script>
-
-  <!-- Page level plugins -->
-  <script src="static/vendor/chart.js/Chart.min.js"></script>
-
-  <!-- Page level custom scripts -->
-  <script src="static/js/demo/chart-area-demo.js"></script>
-  <script src="static/js/demo/chart-pie-demo.js"></script>
-
+  
 </body>
 
 </html>
