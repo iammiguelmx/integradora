@@ -75,11 +75,6 @@
     </div>
 
   </div>
-  <div id="fb-root"></div>
-  <script async defer crossorigin="anonymous"
-    src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v5.0&appId=2486509434954225&autoLogAppEvents=1"></script>
-
-
   <script>
     window.fbAsyncInit = function () {
       FB.init({
@@ -102,22 +97,13 @@
     }(document, 'script', 'facebook-jssdk'));
 
 
+    //3. Check Login Status
     FB.getLoginStatus(function (response) {
       statusChangeCallback(response);
     });
 
 
-    {
-      status: 'connected',
-        authResponse: {
-        accessToken: '...',
-          expiresIn: '...',
-            signedRequest: '...',
-              userID: '...'
-      }
-    }
-
-
+    //4.Esta es la devolución de llamada. Llama a FB.getLoginStatus()
     function checkLoginState() {
       FB.getLoginStatus(function (response) {
         statusChangeCallback(response);
