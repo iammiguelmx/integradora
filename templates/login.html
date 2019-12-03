@@ -13,7 +13,9 @@
 
   <!-- Custom fonts for this template-->
   <link href="static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+    rel="stylesheet">
   <!-- Custom styles for this template-->
   <link href="static/css/sb-admin-2.min.css" rel="stylesheet">
 
@@ -34,12 +36,14 @@
                   <div class="text-center">
                     <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                   </div>
-                  <form class="user" method = "POST">
+                  <form class="user" method="POST">
                     <div class="form-group">
-                      <input type="email" name="email" class="form-control form-control-user" id="username" aria-describedby="emailHelp" placeholder="Enter email">
+                      <input type="email" name="email" class="form-control form-control-user" id="username"
+                        aria-describedby="emailHelp" placeholder="Enter email">
                     </div>
                     <div class="form-group">
-                      <input type="password" name="password" class="form-control form-control-user" id="passpo" placeholder="Password">
+                      <input type="password" name="password" class="form-control form-control-user" id="passpo"
+                        placeholder="Password">
                     </div>
                     <div class="form-group">
                       <div class="custom-control custom-checkbox small">
@@ -47,17 +51,11 @@
                         <label class="custom-control-label" for="customCheck">Remember Me</label>
                       </div>
                     </div>
-                    <button class="btn btn-lg btn-dark btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Acceder</button> 
-                   <!-- <a href="/index" class="btn btn-primary btn-user btn-block">
-                      Login  
-                    </a> -->
+                    <button class="btn btn-lg btn-dark btn-block btn-login text-uppercase font-weight-bold mb-2"
+                      type="submit">Acceder</button>
                     <hr>
-                    <a href="index.html" class="btn btn-google btn-user btn-block">
-                      <i class="fab fa-google fa-fw"></i> Login with Google
-                    </a>
-                    <a href="index.html" class="btn btn-facebook btn-user btn-block">
-                      <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
-                    </a>
+                    <div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with"
+                      data-auto-logout-link="false" data-use-continue-as="false"></div>
                   </form>
                   <hr>
                   <div class="text-center">
@@ -77,28 +75,55 @@
     </div>
 
   </div>
+  <div id="fb-root"></div>
+  <script async defer crossorigin="anonymous"
+    src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v5.0&appId=2486509434954225&autoLogAppEvents=1"></script>
 
-  
-<script>
-    window.fbAsyncInit = function() {
+
+  <script>
+    window.fbAsyncInit = function () {
       FB.init({
-        appId      : '2486509434954225',
-        cookie     : true,
-        xfbml      : true,
-        version    : 'v3.3'
+        appId: '2486509434954225',
+        cookie: true,
+        xfbml: true,
+        version: 'v3.3'
       });
-        
-      FB.AppEvents.logPageView();   
-        
+
+      FB.AppEvents.logPageView();
+
     };
-  
-    (function(d, s, id){
-       var js, fjs = d.getElementsByTagName(s)[0];
-       if (d.getElementById(id)) {return;}
-       js = d.createElement(s); js.id = id;
-       js.src = "https://connect.facebook.net/en_US/sdk.js";
-       fjs.parentNode.insertBefore(js, fjs);
-     }(document, 'script', 'facebook-jssdk'));
+
+    (function (d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) { return; }
+      js = d.createElement(s); js.id = id;
+      js.src = "https://connect.facebook.net/en_US/sdk.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+
+    FB.getLoginStatus(function (response) {
+      statusChangeCallback(response);
+    });
+
+
+    {
+      status: 'connected',
+        authResponse: {
+        accessToken: '...',
+          expiresIn: '...',
+            signedRequest: '...',
+              userID: '...'
+      }
+    }
+
+
+    function checkLoginState() {
+      FB.getLoginStatus(function (response) {
+        statusChangeCallback(response);
+      });
+    }
+
   </script>
 
   <!-- Bootstrap core JavaScript-->
