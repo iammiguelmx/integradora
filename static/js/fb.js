@@ -41,6 +41,15 @@ window.fbAsyncInit = function () {
     fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
 
+function errorlogin(){
+    var email = document.getElementById("email").value;
+    var pass =  document.getElementById("passpo").value;
+    if (email == 'miguel@gmail.com' && pass == '12') {
+    }else {
+        alertify.error('Datos incorrectos');
+    }
+}
+
 
 function testAPI() {                      // Testing Graph API after login.  See statusChangeCallback() for when this call is made.
     console.log('Welcome!  Fetching your information.... ');
@@ -50,3 +59,5 @@ function testAPI() {                      // Testing Graph API after login.  See
             'Thanks for logging in, ' + response.name + '!';
     });
 }
+
+
