@@ -157,13 +157,13 @@ def reporte():
         mensaje = form.mensaje.data
         check = form.check.data
         if name != '' and email != '' and phone != '' and area != '' and asunto != '':
-            print(f"Name: {name}")
-            print(f"email: {email}")
-            print(f"phone: {phone}")
-            print(f"area: {area}")
-            print(f"asunto: {asunto}")
-            print(f"mensaje: {mensaje}")
-            print(f"ckeck: {check}")
+            #print(f"Name: {name}")
+            #print(f"email: {email}")
+            #print(f"phone: {phone}")
+            #print(f"area: {area}")
+            #print(f"mensaje: {mensaje}")
+            #print(f"asunto: {asunto}")
+            #print(f"ckeck: {check}")
             reporte = {
                 "name": name,
                 "email": email,
