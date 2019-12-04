@@ -144,41 +144,38 @@ def tabla():
 def reporte():
     form = ReporteForm(request.form)
     flag = False
-    email = None
-    
+    name = None
+
     if len(form.errors):
         print(form.errors)
     if request.method == 'POST':
+        name = form.name.data
         email = form.email.data
-        password = form.password.data
-        address = form.address.data
-        address2 = form.address2.data
-        city = form.city.data
-        state = form.state.data
-        zip = form.zip.data
+        phone = form.phone.data
+        area = form.area.data
+        asunto = form.asunto.data
+        mensaje = form.mensaje.data
         check = form.check.data
-        if email != '' and password != '' and address != '' and address2 != '' and city != '':
-                # print(f"Nombre email: {email}")
-                # print(f"password: {password}")
-                # print(f"address: {address}")
-                # print(f"address2: {address2}")
-                # print(f"city: {city}")
-                # print(f"state: {state}")
-                # print(f"zip: {zip}")
-                # print(f"check: {check}")
+        if name != '' and email != '' and phone != '' and area != '' and asunto != '':
+            print(f"Name: {name}")
+            print(f"email: {email}")
+            print(f"phone: {phone}")
+            print(f"area: {area}")
+            print(f"asunto: {asunto}")
+            print(f"mensaje: {mensaje}")
+            print(f"ckeck: {check}")
             reporte = {
+                "name": name,
                 "email": email,
-                "password": password,
-                "address": address,
-                "address2": address2,
-                "city": city,
-                "state": state,
-                "zip":  zip,
-                "check": check
+                "phone": phone,
+                "area": area,
+                "asunto": asunto,
+                "mensaje": mensaje,
+                "check":  check
             }
             db_insert_reporte(reportes, reporte)
             flag = True
-    return render_template('reporte.html', flag=flag, email=email)
+    return render_template('reporte.html', flag=flag, name=name)
 
 
 @app.errorhandler(404)

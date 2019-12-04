@@ -1,6 +1,7 @@
 from wtforms import Form
 from wtforms import StringField
 from wtforms import IntegerField
+from wtforms import TextAreaField
 from wtforms.validators import DataRequired
 
 
@@ -38,5 +39,5 @@ class ReporteForm(Form):
     phone = StringField('phone', validators=[DataRequired()])
     area = StringField('area', validators=[DataRequired()])
     asunto = StringField('asunto', validators=[DataRequired()])
-    mensaje = StringField('mensaje', validators=[DataRequired()])
+    mensaje = TextAreaField('mensaje', validators=[DataRequired()])
     check = StringField('check', validators=[DataRequired()])
