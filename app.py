@@ -2,11 +2,13 @@ from dbutils import MONGO_URI
 from dbutils import db_connect
 from dbutils import db_insert_user
 from dbutils import db_insert_vol
+from dbutils import db_insert_reporte
 from dbutils import db_find_all
 from form import EmailForm
 from form import LoginForm
 from form import RegisterForm
 from form import VoluntariadoForm
+from form import ReporteForm
 from flask import Flask
 from flask import request
 from flask import render_template
@@ -17,10 +19,14 @@ app = Flask(__name__)
 # Inserta en la colletion de Usuarios / Registro
 users = db_connect(MONGO_URI, 'mi_app', 'users')
 
-#Inserta en colletion de Voluntariado / Voluntariado
+# Inserta en colletion de Voluntariado / Voluntariado
 voluntariados = db_connect(MONGO_URI, 'mi_app', 'voluntariados')
 
-@app.route('/', methods = ['GET', 'POST'])
+# Inserta en colletion de Reporte / reporte
+reportes = db_connect(MONGO_URI, 'mi_app', 'reporte')
+
+
+@app.route('/', methods=['GET', 'POST'])
 def index():
     form = LoginForm(request.form)
     login_error = False
@@ -61,27 +67,33 @@ def register():
             flag = True
     return render_template('register.html', flag=flag, fistname=fistname)
 
+
 @app.route('/maps')
 def maps():
     return render_template('maps.html')
+
 
 @app.route('/index')
 def login():
     return render_template('index.html')
 
+
 @app.route('/forgot')
 def forgot():
     return render_template('forgot-password.html')
+
 
 @app.route('/clasificacion')
 def clasificacion():
     return render_template('cards.html')
 
+
 @app.route('/graficas')
 def graficas():
     return render_template('/graficas.html')
 
-@app.route('/voluntariado' , methods = ['GET', 'POST'])
+
+@app.route('/voluntariado', methods=['GET', 'POST'])
 def voluntariado():
     form = VoluntariadoForm(request.form)
     flag = False
@@ -99,14 +111,14 @@ def voluntariado():
         zip = form.zip.data
         check = form.check.data
         if email != '' and password != '' and address != '' and address2 != '' and city != '':
-            #print(f"Nombre email: {email}")
-            #print(f"password: {password}")
-            #print(f"address: {address}")
-            #print(f"address2: {address2}")
-            #print(f"city: {city}")
-            #print(f"state: {state}")
-            #print(f"zip: {zip}")
-            #print(f"check: {check}")
+            # print(f"Nombre email: {email}")
+            # print(f"password: {password}")
+            # print(f"address: {address}")
+            # print(f"address2: {address2}")
+            # print(f"city: {city}")
+            # print(f"state: {state}")
+            # print(f"zip: {zip}")
+            # print(f"check: {check}")
             voluntariado = {
                 "email": email,
                 "password": password,
@@ -120,6 +132,53 @@ def voluntariado():
             db_insert_vol(voluntariados, voluntariado)
             flag = True
     return render_template('voluntariado.html', flag=flag, email=email)
+
+
+@app.route('/tabla', methods=['GET', 'POST'])
+def tabla():
+    registered = db_find_all(voluntariados)
+    return render_template('/tabla.html', voluntariados=registered)
+
+
+@app.route('/reporte', methods=['GET', 'POST'])
+def reporte():
+    form = ReporteForm(request.form)
+    flag = False
+    email = None
+    
+    if len(form.errors):
+        print(form.errors)
+    if request.method == 'POST':
+        email = form.email.data
+        password = form.password.data
+        address = form.address.data
+        address2 = form.address2.data
+        city = form.city.data
+        state = form.state.data
+        zip = form.zip.data
+        check = form.check.data
+        if email != '' and password != '' and address != '' and address2 != '' and city != '':
+                # print(f"Nombre email: {email}")
+                # print(f"password: {password}")
+                # print(f"address: {address}")
+                # print(f"address2: {address2}")
+                # print(f"city: {city}")
+                # print(f"state: {state}")
+                # print(f"zip: {zip}")
+                # print(f"check: {check}")
+            reporte = {
+                "email": email,
+                "password": password,
+                "address": address,
+                "address2": address2,
+                "city": city,
+                "state": state,
+                "zip":  zip,
+                "check": check
+            }
+            db_insert_reporte(reportes, reporte)
+            flag = True
+    return render_template('reporte.html', flag=flag, email=email)
 
 
 @app.errorhandler(404)

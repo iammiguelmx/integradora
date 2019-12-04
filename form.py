@@ -31,3 +31,12 @@ class VoluntariadoForm(Form):
     state = StringField('state', validators=[DataRequired()])
     zip = StringField('zip', validators=[DataRequired()])
     check = StringField('check', validators=[DataRequired()])
+
+class ReporteForm(Form):
+    name = StringField('name', validators=[DataRequired()])
+    email = StringField('email', validators=[DataRequired()])
+    phone = StringField('phone', validators=[DataRequired()])
+    area = StringField('area', validators=[DataRequired()])
+    asunto = StringField('asunto', validators=[DataRequired()])
+    mensaje = StringField('mensaje', validators=[DataRequired()])
+    check = StringField('check', validators=[DataRequired()])

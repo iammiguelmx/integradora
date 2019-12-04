@@ -14,7 +14,13 @@ def db_insert_user(collection, user):
 def db_insert_vol(collection, voluntariado):
     return collection.insert_one(voluntariado)
 
+def db_insert_reporte(collection, reporte):
+    return collection.insert_one(reporte)
+
 def db_find_all(collection, query={}):
+    return collection.find(query)
+
+def db_find_one(collection, query={}):
     return collection.find(query)
 
 if __name__ == '__main__':

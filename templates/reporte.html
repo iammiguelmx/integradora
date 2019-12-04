@@ -93,7 +93,7 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="/clasificacion">Clasificar Basura</a>
-                        <a class="collapse-item" href="/graficas">Asistir a un voluntariado</a>
+                        <a class="collapse-item" href="/voluntariado">Asistir a un voluntariado</a>
                         <a class="collapse-item" href="/tabla">Consultar Voluntariados</a>
                         <a class="collapse-item" href="/reporte">Reporte Cuidadano</a>
                     </div>
@@ -385,65 +385,70 @@
                                 <!-- Basic Card Example -->
                                 <div class="card shadow mb-4">
                                     <div class="card-header py-3">
-                                        <h6 class="m-0 font-weight-bold text-primary">Registro para Voluntariado</h6>
+                                        <h6 class="m-0 font-weight-bold text-primary">Reporte Cuidadano</h6>
                                     </div>
                                     <div class="card-body">
                                         <form method="POST">
                                             <div class="form-row">
-                                                <div class="form-group col-md-6">
-                                                    <label for="inputEmail4">Email</label>
-                                                    <input type="email" class="form-control" id="inputEmail4"
-                                                        placeholder="Email" required name="email">
-                                                </div>
-                                                <div class="form-group col-md-6">
-                                                    <label for="inputPassword4">Password</label>
-                                                    <input type="password" class="form-control" id="inputPassword4"
-                                                        placeholder="Password" required name="password">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="inputAddress">Address</label>
-                                                <input type="text" class="form-control" id="inputAddress"
-                                                    placeholder="1234 Main St" required name="address">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="inputAddress2">Address 2</label>
-                                                <input type="text" class="form-control" id="inputAddress2"
-                                                    placeholder="Apartment, studio, or floor" required name="address2">
-                                            </div>
-                                            <div class="form-row">
-                                                <div class="form-group col-md-6">
-                                                    <label for="inputCity">City</label>
-                                                    <input type="text" class="form-control" id="inputCity" required name="city">
+                                                <div class="form-group col-md-4">
+                                                    <label for="inputEmail4">Nombre</label>
+                                                    <input type="text" class="form-control" id="inputEmail4"
+                                                        placeholder="Name" required name="name">
                                                 </div>
                                                 <div class="form-group col-md-4">
-                                                    <label for="inputState">State</label>
-                                                    <select id="inputState" class="form-control" required name="status">
+                                                    <label for="inputPassword4">Email</label>
+                                                    <input type="email" class="form-control" id="inputPassword4"
+                                                        placeholder="Email" required name="email">
+                                                </div>
+                                                <div class="form-group col-md-4">
+                                                    <label for="inputAddress">Telefono</label>
+                                                    <input type="text" class="form-control" id="inputAddress"
+                                                        placeholder="428 12 70 154" required name="phone">
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-4">
+                                                    <label for="inputState">Area</label>
+                                                    <select id="inputState" class="form-control" required name="area">
                                                         <option selected required>Choose...</option>
                                                         <option>Dolores Hidalgo</option>
                                                     </select>
                                                 </div>
-                                                <div class="form-group col-md-2">
-                                                    <label for="inputZip">Zip</label>
-                                                    <input type="text" class="form-control" id="inputZip" required name="zip">
+                                                <div class="form-group col-md-4">
+                                                    <label for="inputState">Asunto</label>
+                                                    <select id="inputState" class="form-control" required name="asunto">
+                                                        <option selected required>Choose...</option>
+                                                        <option>Denuncia</option>
+                                                        <option>Felicitación</option>
+                                                        <option>Queja</option>
+                                                        <option>Sugerencia</option>
+                                                        <option>Duda</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-12">
+                                                    <label for="exampleFormControlTextarea3">Mensaje:</label>
+                                                    <textarea class="form-control" id="mensaje" rows="7"
+                                                        required></textarea>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" id="gridCheck" name="check">
+                                                    <input class="form-check-input" type="checkbox" id="gridCheck"
+                                                        name="check">
                                                     <label class="form-check-label" for="gridCheck" name="check">
                                                         Acepto Términos y Condiciones
                                                     </label>
                                                 </div>
                                             </div>
-                                            <button type="submit" class="btn btn-primary" onclick="registrar();">Enviar</button>
+                                            <button type="submit" class="btn btn-primary"
+                                                onclick="registrarReporte();">Enviar</button>
                                         </form>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
-
                     </div>
                     <!-- /.container-fluid -->
                 </div>
@@ -454,6 +459,7 @@
     <!-- /.container-fluid -->
     </div>
     <!-- End of Main Content -->
+
     <!-- Footer -->
     <footer class="sticky-footer bg-white">
         <div class="container my-auto">
@@ -476,11 +482,13 @@
     </a>
 
     <script type="text/javascript">
-        function registrar() {
-        //  event.preventDefault();
-          alertify.success('Usuario Registrado Correctamente');
+        function registrarReporte() {
+            //  event.preventDefault();
+            alertify.success('Reporte Enviado . . ');
         }
-      </script>
+    </script>
+
+
 
     <!-- Load Facebook SDK for JavaScript -->
     <div id="fb-root"></div>
