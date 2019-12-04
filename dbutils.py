@@ -8,9 +8,11 @@ def db_connect(MONGO_URI, db_name, col_name):
     collection = database[col_name]
     return collection
 
-
 def db_insert_user(collection, user):
     return collection.insert_one(user)
+
+def db_insert_vol(collection, voluntariado):
+    return collection.insert_one(voluntariado)
 
 def db_find_all(collection, query={}):
     return collection.find(query)

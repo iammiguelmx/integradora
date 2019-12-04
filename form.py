@@ -8,13 +8,26 @@ class EmailForm(Form):
     name = StringField('name', validators=[DataRequired()])
     email = StringField('email', validators=[DataRequired()])
 
+
 class LoginForm(Form):
     email = StringField('email', validators=[DataRequired()])
     password = StringField('password', validators=[DataRequired()])
 
+
 class RegisterForm(Form):
-    fistname   = StringField('fistname', validators=[DataRequired()])
-    lastname    = StringField('lastname', validators=[DataRequired()])
-    mail        = StringField('mail', validators=[DataRequired()])   
-    password    = StringField('password', validators=[DataRequired()]) 
-    confirmpass = StringField('confirmpass', validators=[DataRequired()]) 
+    fistname = StringField('fistname', validators=[DataRequired()])
+    lastname = StringField('lastname', validators=[DataRequired()])
+    mail = StringField('mail', validators=[DataRequired()])
+    password = StringField('password', validators=[DataRequired()])
+    confirmpass = StringField('confirmpass', validators=[DataRequired()])
+
+
+class VoluntariadoForm(Form):
+    email = StringField('email', validators=[DataRequired()])
+    password = StringField('password', validators=[DataRequired()])
+    address = StringField('address', validators=[DataRequired()])
+    address2 = StringField('address2', validators=[DataRequired()])
+    city = StringField('city', validators=[DataRequired()])
+    state = StringField('state', validators=[DataRequired()])
+    zip = StringField('zip', validators=[DataRequired()])
+    check = StringField('check', validators=[DataRequired()])

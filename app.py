@@ -1,18 +1,24 @@
 from dbutils import MONGO_URI
 from dbutils import db_connect
 from dbutils import db_insert_user
+from dbutils import db_insert_vol
 from dbutils import db_find_all
 from form import EmailForm
 from form import LoginForm
 from form import RegisterForm
+from form import VoluntariadoForm
 from flask import Flask
 from flask import request
 from flask import render_template
 
 # Creacion de instance
 app = Flask(__name__)
+
+# Inserta en la colletion de Usuarios / Registro
 users = db_connect(MONGO_URI, 'mi_app', 'users')
 
+#Inserta en colletion de Voluntariado / Voluntariado
+voluntariados = db_connect(MONGO_URI, 'mi_app', 'voluntariados')
 
 @app.route('/', methods = ['GET', 'POST'])
 def index():
@@ -75,9 +81,46 @@ def clasificacion():
 def graficas():
     return render_template('/graficas.html')
 
-@app.route('/voluntariado')
+@app.route('/voluntariado' , methods = ['GET', 'POST'])
 def voluntariado():
-    return render_template('/voluntariado.html')
+    form = VoluntariadoForm(request.form)
+    flag = False
+    email = None
+
+    if len(form.errors):
+        print(form.errors)
+    if request.method == 'POST':
+        email = form.email.data
+        password = form.password.data
+        address = form.address.data
+        address2 = form.address2.data
+        city = form.city.data
+        state = form.state.data
+        zip = form.zip.data
+        check = form.check.data
+        if email != '' and password != '' and address != '' and address2 != '' and city != '':
+            print(f"Nombre email: {email}")
+            print(f"password: {password}")
+            print(f"address: {address}")
+            print(f"address2: {address2}")
+            print(f"city: {city}")
+            print(f"state: {state}")
+            print(f"zip: {zip}")
+            print(f"check: {check}")
+            voluntariado = {
+                "email": email,
+                "password": password,
+                "address": address,
+                "address2": address2,
+                "city": city,
+                "state": state,
+                "zip":  zip,
+                "check": check
+            }
+            db_insert_vol(voluntariados, voluntariado)
+            flag = True
+    return render_template('voluntariado.html', flag=flag, email=email)
+
 
 @app.errorhandler(404)
 def no_encontrado(error=None):
