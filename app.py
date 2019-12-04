@@ -13,6 +13,7 @@ from flask import render_template
 app = Flask(__name__)
 users = db_connect(MONGO_URI, 'mi_app', 'users')
 
+
 @app.route('/', methods = ['GET', 'POST'])
 def index():
     form = LoginForm(request.form)
@@ -73,6 +74,10 @@ def clasificacion():
 @app.route('/graficas')
 def graficas():
     return render_template('/graficas.html')
+
+@app.route('/voluntariado')
+def voluntariado():
+    return render_template('/voluntariado.html')
 
 @app.errorhandler(404)
 def no_encontrado(error=None):

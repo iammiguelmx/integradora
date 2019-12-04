@@ -39,11 +39,11 @@
                   <form class="user" method="POST">
                     <div class="form-group">
                       <input type="email" name="email" class="form-control form-control-user" id="username"
-                        aria-describedby="emailHelp" placeholder="Enter email">
+                        aria-describedby="emailHelp" placeholder="Enter email" required>
                     </div>
                     <div class="form-group">
                       <input type="password" name="password" class="form-control form-control-user" id="passpo"
-                        placeholder="Password">
+                        placeholder="Password" required>
                     </div>
                     <div class="form-group">
                       <div class="custom-control custom-checkbox small">
@@ -73,13 +73,6 @@
       </div>
 
     </div>
-
-  </div>
-  <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-  </fb:login-button>
-
-  <div id="status">
-  </div>
 
   <!-- Bootstrap core JavaScript-->
   <script src="static/vendor/jquery/jquery.min.js"></script>
