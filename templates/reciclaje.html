@@ -20,33 +20,44 @@
     <!-- Custom styles for this template-->
     <link href="static/css/sb-admin-2.min.css" rel="stylesheet">
 
-    <!-- JavaScript -->
-    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
-    <!-- Default theme -->
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css" />
-    <!-- Semantic UI theme -->
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css" />
-    <!-- Bootstrap theme -->
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css" />
-
-    <!-- 
-    RTL version
--->
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.rtl.min.css" />
-    <!-- Default theme -->
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.rtl.min.css" />
-    <!-- Semantic UI theme -->
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.rtl.min.css" />
-    <!-- Bootstrap theme -->
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.rtl.min.css" />
-
 </head>
 
 <body id="page-top">
 
+    <script>
+        window.onload = function () {
+
+            var chart = new CanvasJS.Chart("chartContainer", {
+                theme: "light2", // "light1", "light2", "dark1", "dark2"
+                exportEnabled: true,
+                animationEnabled: true,
+                title: {
+                    text: "Contaminación en México 2019"
+                },
+                data: [{
+                    type: "pie",
+                    startAngle: 25,
+                    toolTipContent: "<b>{label}</b>: {y}%",
+                    showInLegend: "false",
+                    legendText: "{label}",
+                    indexLabelFontSize: 12,
+                    indexLabel: "{label} - {y}%",
+                    dataPoints: [
+                        { y: 47.90, label: "Plásticos" },
+                        { y: 8.50, label: "Papel" },
+                        { y: 16.40, label: "Colillas" },
+                        { y: 5.60, label: "Metal" },
+                        { y: 2.70, label: "Vidrio" },
+                        { y: 6.80, label: "Madera" },
+                        { y: 7.30, label: "Alga/Planta" },
+                        { y: 5.00, label: "Otros" }
+                    ]
+                }]
+            });
+            chart.render();
+
+        }
+    </script>
 
     <!-- Page Wrapper -->
     <div id="wrapper">
@@ -69,6 +80,7 @@
             <hr class="sidebar-divider">
 
 
+            <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
@@ -78,6 +90,7 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="/maps">Contaminación Aire Maps</a>
+                        <a class="collapse-item" href="/reciclaje">Puntos de reciclaje</a>
                     </div>
                 </div>
             </li>
@@ -93,12 +106,13 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="/clasificacion">Clasificar Basura</a>
-                        <a class="collapse-item" href="/graficas">Asistir a un voluntariado</a>
+                        <a class="collapse-item" href="/voluntariado">Asistir a un voluntariado</a>
                         <a class="collapse-item" href="/tabla">Consultar Voluntariados</a>
                         <a class="collapse-item" href="/reporte">Reporte Cuidadano</a>
                     </div>
                 </div>
             </li>
+
 
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
@@ -139,6 +153,7 @@
                     </div>
                 </div>
             </li>
+
 
 
             <!-- Divider -->
@@ -378,87 +393,55 @@
                                 class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
                     </div>
 
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-lg-12">
 
-                                <!-- Basic Card Example -->
-                                <div class="card shadow mb-4">
-                                    <div class="card-header py-3">
-                                        <h6 class="m-0 font-weight-bold text-primary">Registro para Voluntariado</h6>
-                                    </div>
-                                    <div class="card-body">
-                                        <form method="POST">
-                                            <div class="form-row">
-                                                <div class="form-group col-md-6">
-                                                    <label for="inputEmail4">Email</label>
-                                                    <input type="email" class="form-control" id="inputEmail4"
-                                                        placeholder="Email" required name="email">
-                                                </div>
-                                                <div class="form-group col-md-6">
-                                                    <label for="inputPassword4">Password</label>
-                                                    <input type="password" class="form-control" id="inputPassword4"
-                                                        placeholder="Password" required name="password">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="inputAddress">Address</label>
-                                                <input type="text" class="form-control" id="inputAddress"
-                                                    placeholder="1234 Main St" required name="address">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="inputAddress2">Address 2</label>
-                                                <input type="text" class="form-control" id="inputAddress2"
-                                                    placeholder="Apartment, studio, or floor" required name="address2">
-                                            </div>
-                                            <div class="form-row">
-                                                <div class="form-group col-md-6">
-                                                    <label for="inputCity">City</label>
-                                                    <input type="text" class="form-control" id="inputCity" required
-                                                        name="city">
-                                                </div>
-                                                <div class="form-group col-md-4">
-                                                    <label for="inputState">State</label>
-                                                    <select id="inputState" class="form-control" required name="state">
-                                                        <option selected required>Choose...</option>
-                                                        <option>Dolores Hidalgo</option>
-                                                    </select>
-                                                </div>
-                                                <div class="form-group col-md-2">
-                                                    <label for="inputZip">Zip</label>
-                                                    <input type="text" class="form-control" id="inputZip" required
-                                                        name="zip">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" id="gridCheck"
-                                                        name="check">
-                                                    <label class="form-check-label" for="gridCheck" name="check">
-                                                        Acepto Términos y Condiciones
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <button type="submit" class="btn btn-primary"
-                                                onclick="registrar();">Enviar</button>
-                                        </form>
+
+
+                    <!-- Content Row -->
+
+                    <div class="row">
+
+                        <!-- Area Chart -->
+                        <div class="col-xl-8 col-lg-7">
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Dropdown -->
+                                <div
+                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">Puntos de reciclaje Dolores 🌎</h6>
+                                    <div class="dropdown no-arrow">
+                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                                            aria-labelledby="dropdownMenuLink">
+                                            <div class="dropdown-header">Dropdown Header:</div>
+                                            <a class="dropdown-item" href="#">Action</a>
+                                            <a class="dropdown-item" href="#">Another action</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="#">Something else here</a>
+                                        </div>
                                     </div>
                                 </div>
-
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                    <div id='map' style='height:330px;' />
+                                    <iframe
+                                        src="https://www.google.com/maps/d/u/0/embed?mid=1suRaMimJURE1UFMKcYB1uzxJKm8PtIpX"
+                                        width="650" height="330px;"></iframe>
+                                </div>
                             </div>
                         </div>
-
                     </div>
-                    <!-- /.container-fluid -->
+                    <!-- Pie Chart -->
                 </div>
             </div>
         </div>
     </div>
-    </div>
     <!-- /.container-fluid -->
+
     </div>
     <!-- End of Main Content -->
-    <!-- Footer -->
+
 
     <footer class="footer">
         <div class="container text-center">
@@ -466,7 +449,7 @@
                 <i class="fa fa-heart"></i> with <i class="fa fa-code"></i> and <i class="fa fa-coffee"></i></p>
         </div>
         <!--//container-->
-    </footer>oter -->
+    </footer>
 
     </div>
     <!-- End of Content Wrapper -->
@@ -478,13 +461,6 @@
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
-
-    <script type="text/javascript">
-        function registrar() {
-            //event.preventDefault();
-            alertify.success('Usuario Registrado Correctamente');
-        }
-    </script>
 
     <!-- Load Facebook SDK for JavaScript -->
     <div id="fb-root"></div>
@@ -523,6 +499,7 @@
     <script src="static/vendor/chart.js/Chart.min.js"></script>
 
     <!-- Page level custom scripts -->
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 </body>
 
 </html>

@@ -3,3 +3,4 @@ dbutils
 mongoengine
 pymongo[tls,srv]
 wtforms
+Flask-Mail

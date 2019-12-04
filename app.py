@@ -9,12 +9,16 @@ from form import LoginForm
 from form import RegisterForm
 from form import VoluntariadoForm
 from form import ReporteForm
+from config import Config
 from flask import Flask
 from flask import request
 from flask import render_template
+from flask_mail import Mail
+from flask_mail import Message
 
 # Creacion de instance
 app = Flask(__name__)
+mail = Mail()
 
 # Inserta en la colletion de Usuarios / Registro
 users = db_connect(MONGO_URI, 'mi_app', 'users')
@@ -30,7 +34,6 @@ reportes = db_connect(MONGO_URI, 'mi_app', 'reporte')
 def index():
     form = LoginForm(request.form)
     login_error = False
-
     if len(form.errors):
         print(form.errors)
     if request.method == 'POST':
@@ -65,6 +68,14 @@ def register():
             }
             db_insert_user(users, user)
             flag = True
+
+    msg = Message('Gracias por tu registro',
+                  sender='miguel.cam.mx@gmail.com',
+                  recipients=[form.mail.data])
+    
+    msg.html = render_template('email.html', fistname=fistname)
+    #mail.send(msg)
+
     return render_template('register.html', flag=flag, fistname=fistname)
 
 
@@ -182,5 +193,10 @@ def reporte():
 def no_encontrado(error=None):
     return render_template("404.html", url=request.url)
 
+@app.route('/reciclaje')
+def reciclaje():
+    return render_template('reciclaje.html')
+
 if __name__ == '__main__':
+    mail.init_app(app)
     app.run(port=5000, debug=True)

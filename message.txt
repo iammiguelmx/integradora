@@ -1,0 +1,10 @@
+Estimad@ ${PERSON_NAME},
+
+Hemos detectado un nuevo inicio de sesion, ${PERSON_NAME}
+
+Saludos Cordiales.
+
+Att,
+
+@iammiguelmx
+Administrador
