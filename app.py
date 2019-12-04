@@ -99,14 +99,14 @@ def voluntariado():
         zip = form.zip.data
         check = form.check.data
         if email != '' and password != '' and address != '' and address2 != '' and city != '':
-            print(f"Nombre email: {email}")
-            print(f"password: {password}")
-            print(f"address: {address}")
-            print(f"address2: {address2}")
-            print(f"city: {city}")
-            print(f"state: {state}")
-            print(f"zip: {zip}")
-            print(f"check: {check}")
+            #print(f"Nombre email: {email}")
+            #print(f"password: {password}")
+            #print(f"address: {address}")
+            #print(f"address2: {address2}")
+            #print(f"city: {city}")
+            #print(f"state: {state}")
+            #print(f"zip: {zip}")
+            #print(f"check: {check}")
             voluntariado = {
                 "email": email,
                 "password": password,
