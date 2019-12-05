@@ -252,31 +252,31 @@
                                             <div class="form-row">
                                                 <div class="form-group col-md-4">
                                                     <label for="inputEmail4">Nombre</label>
-                                                    <input type="text" class="form-control" id="inputEmail4"
+                                                    <input type="text" class="form-control" id="name"
                                                         placeholder="Name" required name="name">
                                                 </div>
                                                 <div class="form-group col-md-4">
                                                     <label for="inputPassword4">Email</label>
-                                                    <input type="email" class="form-control" id="inputPassword4"
+                                                    <input type="email" class="form-control" id="email"
                                                         placeholder="Email" required name="email">
                                                 </div>
                                                 <div class="form-group col-md-4">
                                                     <label for="inputAddress">Telefono</label>
-                                                    <input type="text" class="form-control" id="inputAddress"
+                                                    <input type="text" class="form-control" id="phone"
                                                         placeholder="428 12 70 154" required name="phone">
                                                 </div>
                                             </div>
                                             <div class="form-row">
                                                 <div class="form-group col-md-4">
                                                     <label for="inputState">Area</label>
-                                                    <select id="inputState" class="form-control" required name="area">
+                                                    <select id="area" class="form-control" required name="area">
                                                         <option selected required>Choose...</option>
                                                         <option>Dolores Hidalgo</option>
                                                     </select>
                                                 </div>
                                                 <div class="form-group col-md-4">
                                                     <label for="inputState">Asunto</label>
-                                                    <select id="inputState" class="form-control" required name="asunto">
+                                                    <select id="asunto" class="form-control" required name="asunto">
                                                         <option selected required>Choose...</option>
                                                         <option>Denuncia</option>
                                                         <option>Felicitación</option>
@@ -295,7 +295,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" id="gridCheck"
+                                                    <input class="form-check-input" type="checkbox" id="check"
                                                         name="check">
                                                     <label class="form-check-label" for="gridCheck" name="check">
                                                         Acepto Términos y Condiciones
@@ -343,7 +343,19 @@
     <script type="text/javascript">
         function registrarReporte() {
             //  event.preventDefault();
-            alertify.success('Reporte Enviado . . ');
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var phone = document.getElementById("phone").value;
+            var area = document.getElementById("area").value;
+            var asunto = document.getElementById("asunto").value;
+            var mensaje = document.getElementById("mensaje").value;
+            var check = document.getElementById("check").value;
+            if (name != '' && email != '' && phone != ''
+                && area != '' && asunto != '' && mensaje != '' && check != '') {
+                    alertify.success('Reporte Enviado . . ');
+            } else {
+                alertify.error('Datos incorrectos');
+            }
         }
     </script>
 
