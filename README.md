@@ -6,13 +6,16 @@
 
 ### ✨ [Demo](https://iammiguelmx-integradora.glitch.me/)
 
-## Author
+### Author
 
 👤 **Miguel Camacho **
 
 * Website: https://iammiguelmx.github.io
 * Twitter: [@elmiguelmx](https://twitter.com/elmiguelmx)
+* Facebook: [@iammiguelmx](https://www.facebook.com/iammiguelmx)
 * Github: [@iammiguelmx](https://github.com/iammiguelmx)
+* LinkedIn: [@iammiguelmx](www.linkedin.com/in/iammiguelmx)
+* Trello: https://trello.com/b/JiYeIVfw/integradora
 
 ### Stack
 
@@ -20,10 +23,11 @@ With a lot of love 💖, motivation to help others 💪🏼 and [Python](https:/
 
 * [Flask](https://www.palletsprojects.com/p/flask/) <img src="https://emojis.slackmojis.com/emojis/images/1501021338/314/flask.png" width="15">
 * [MongoDB](https://www.mongodb.com/) <img src="https://www.mongodb.com/assets/images/global/favicon.ico" width="15">
+* [Facebook](https://developers.facebook.com) 
 
 ### Installation
 
-1. Clone the `integradora` repo:
+1. Clone the integradora repo:
 ```bash
 git clone https://github.com/iammiguelmx/integradora.git
 ```
@@ -47,7 +51,10 @@ Contributions are what make the open source community such an amazing place to b
 
 Distributed under a MIT License. See `LICENSE` for more information.
 
-###Show your support
+### Updates! :tada:
+Video del Speech:
+
+### Show your support
 
 Give a ⭐️ if this project helped you!
 
