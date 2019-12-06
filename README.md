@@ -4,7 +4,7 @@
 
 > Proyecto para la materia de integradora el cual muestra el mapas donde existe contaminacion del aire, info sobre como reciclar la basura y demás
 
-### ✨ [Demo](https://iammiguelmx-integradora.glinch.me/)
+### ✨ [Demo](https://iammiguelmx-integradora.glitch.me/)
 
 ## Author
 
@@ -14,10 +14,40 @@
 * Twitter: [@elmiguelmx](https://twitter.com/elmiguelmx)
 * Github: [@iammiguelmx](https://github.com/iammiguelmx)
 
-## Show your support
+### Stack
+
+With a lot of love 💖, motivation to help others 💪🏼 and [Python](https://www.python.org/) 🐍, using:
+
+* [Flask](https://www.palletsprojects.com/p/flask/) <img src="https://emojis.slackmojis.com/emojis/images/1501021338/314/flask.png" width="15">
+* [MongoDB](https://www.mongodb.com/) <img src="https://www.mongodb.com/assets/images/global/favicon.ico" width="15">
+
+### Installation
+
+1. Clone the `integradora` repo:
+```bash
+git clone https://github.com/iammiguelmx/integradora.git
+```
+2. Install requirements:
+```bash
+pip install -r requirements.txt
+
+### Contributing
+
+Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+
+<!-- LICENSE -->
+### License
+
+Distributed under a MIT License. See `LICENSE` for more information.
+
+#####Show your support
 
 Give a ⭐️ if this project helped you!
 
-
-***
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
