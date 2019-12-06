@@ -1,4 +1,4 @@
-# Welcome to integradora 👋
+# Welcome to Garbage App 👋
 ![Version](https://img.shields.io/badge/version-1.0-blue.svg?cacheSeconds=2592000)
 [![Twitter: elmiguelmx](https://img.shields.io/twitter/follow/elmiguelmx.svg?style=social)](https://twitter.com/elmiguelmx)
 
