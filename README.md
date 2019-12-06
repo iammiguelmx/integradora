@@ -30,6 +30,7 @@ git clone https://github.com/iammiguelmx/integradora.git
 2. Install requirements:
 ```bash
 pip install -r requirements.txt
+```
 
 ### Contributing
 
@@ -42,12 +43,11 @@ Contributions are what make the open source community such an amazing place to b
 5. Open a Pull Request
 
 
-<!-- LICENSE -->
 ### License
 
 Distributed under a MIT License. See `LICENSE` for more information.
 
-#####Show your support
+###Show your support
 
 Give a ⭐️ if this project helped you!
 
