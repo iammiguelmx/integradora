@@ -14,6 +14,7 @@
 * Twitter: [@elmiguelmx](https://twitter.com/elmiguelmx)
 * Facebook: [@iammiguelmx](https://www.facebook.com/iammiguelmx)
 * Github: [@iammiguelmx](https://github.com/iammiguelmx)
+* Github: [@vianeygr9](https://github.com/vianeygr9)
 * LinkedIn: [@iammiguelmx](www.linkedin.com/in/iammiguelmx)
 * Trello: https://trello.com/b/JiYeIVfw/integradora
 
