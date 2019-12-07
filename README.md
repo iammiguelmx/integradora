@@ -53,7 +53,10 @@ Contributions are what make the open source community such an amazing place to b
 Distributed under a MIT License. See `LICENSE` for more information.
 
 ### Updates! :tada:
-Video del Speech:
+Video del Speech: 
+
+[![Garbage App 👀](https://youtu.be/3tSmLJG_Y1g.jpg)](https://www.youtube.com/watch?v=3tSmLJG_Y1g)
+
 
 ### Show your support
 
