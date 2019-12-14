@@ -21,7 +21,7 @@ def db_find_all(collection, query={}):
     return collection.find(query)
 
 def db_find_one(collection, query={}):
-    return collection.find(query)
+    return collection.find_one(query)
 
 if __name__ == '__main__':
     print("MongoClient imported successfully!")

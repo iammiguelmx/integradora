@@ -4,6 +4,7 @@ from dbutils import db_insert_user
 from dbutils import db_insert_vol
 from dbutils import db_insert_reporte
 from dbutils import db_find_all
+from dbutils import db_find_one
 from form import EmailForm
 from form import LoginForm
 from form import RegisterForm
@@ -37,7 +38,10 @@ def index():
     if len(form.errors):
         print(form.errors)
     if request.method == 'POST':
-        if form.email.data == 'miguel@gmail.com' and form.password.data == '12':
+    
+        query = db_find_one(users, {'mail': form.email.data})
+
+        if form.email.data == query['mail'] and form.password.data == query['password']:
             return render_template('index.html')
         else:
             login_error = True
@@ -58,6 +62,7 @@ def register():
         mail = form.mail.data
         password = form.password.data
         confirmpass = form.confirmpass.data
+
         if fistname != '' and lastname != '' and mail != '' and password != '' and confirmpass != '':
             user = {
                 "fistname": fistname,

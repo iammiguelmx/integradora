@@ -45,10 +45,7 @@ window.fbAsyncInit = function () {
 function errorlogin(){
     var email = document.getElementById("email").value;
     var pass =  document.getElementById("passpo").value;
-    if (email == 'miguel@gmail.com' && pass == '12') {
-    }else {
-        alertify.error('Datos incorrectos');
-    }
+   
 }
 
 
